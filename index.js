@@ -38,10 +38,14 @@ morgan.token('body', (req) => {
 app.use(cors())
 app.use(express.json())
 app.use(morgan(':method :url :status :response-time ms - :res[content-length] :body'));
+app.use(express.static('dist'))
 
 // GET HOME
 app.get('/', (req, res) => {
-  res.send(`<h1>My phonebook</h1>`)
+  res.send(`
+    <h1>Phonebook api</h1>
+    <p><code>/api/persons</code></p>
+    `)
 })
 
 // GET INFO
